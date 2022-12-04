@@ -1,6 +1,6 @@
 ## What does MORJ means anyway ?
 
-**MORJ** stands for **M**otorized **O**ptical **R**otary **J**oint for wide field fibroscopy in freely moving animals.
+**MORJ** stands for **M**otorized **O**ptical **R**otary **J**oint, and is a device used for wide field fibroscopic imaging in freely moving animals.
 
 It names a technical solution developed to enhance the use of dense multifiber bundles to record optical fluorescence signals in the brain of freely moving small animals.
 
