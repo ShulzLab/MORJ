@@ -5,7 +5,7 @@
 It refers to a technical solution developed to enhance the use of dense multifibre beams for recording optical fluorescence signals in the brain of small, freely-moving animals. 
 
 <div style="clear: both;">
- <img src="README.assets/shema_vue_large_labels.png" alt="MORJ" style="width : 20%;float:right;"> 
+ <img src="README.assets/shema_vue_large_labels.png" alt="MORJ" style="width : 20%;float:right;" align="right"> 
 </div><h2> What is the rationale behind the development of this device ?</h2>
 
 The use of rotating optical joints to allow light to pass through a fixed optical arrangement to one or a few rotating waveguides is quite common. However, there are few or no solutions for the use of dense multifibre waveguides. This usually leads neuroscientists wishing to study ethologically relevant behaviours in freely moving animals to use long sets of relatively rigid fibre bundles and to sporadically interrupt experiments to untangle the twist in the fibre as the animal moves and rotates, which in turn leads to disruption of the animal's behaviour.
