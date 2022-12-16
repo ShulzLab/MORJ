@@ -2,39 +2,34 @@
 
 **MORJ** stands for **M**otorized **O**ptical **R**otary **J**oint, and is a device used for wide field fibroscopic imaging in freely moving animals.
 
-It names a technical solution developed to enhance the use of dense multifiber bundles to record optical fluorescence signals in the brain of freely moving small animals.
+It refers to a technical solution developed to enhance the use of dense multifibre beams for recording optical fluorescence signals in the brain of small, freely-moving animals. 
 
 ## What is the rationale behind the development of this device ?
 
-The use of optical rotary joints to allow light to pass through a fixed optical arrangement to a single or few  rotative waveguides, is quite common. Yet, none or few solutions exist for the use of dense multifiber waveguides. This leads neuroscientists wishing to study ethologically relevant behaviours in the freely moving animals to use long sets of rigid fiber bundles and sporadically stop experiments to disantangle the torsion of the fiber as the animal moves and rotates, in turn leading to a perturbation of the animal's behaviour.
+The use of rotating optical joints to allow light to pass through a fixed optical arrangement to one or a few rotating waveguides is quite common. However, there are few or no solutions for the use of dense multifibre waveguides. This usually leads neuroscientists wishing to study ethologically relevant behaviours in freely moving animals to use long sets of relatively rigid fibre bundles and to sporadically interrupt experiments to untangle the twist in the fibre as the animal moves and rotates, which in turn leads to disruption of the animal's behaviour.
 
-The solution we have developed and described in this repository and in the peer-reviewed publication (*link Neurophotonics*) has allowed us to remove this limitation. By allowing the fiber bundle to be rotated while still being able to record stable sequences intermittently, it is possible to take full advantage of the use of flexible fiberscopes for the study of natural behavioural repertoires.
+The solution we have developed and described in this repository and in the peer-reviewed publication (*link Neurophotonics*) has allowed us to remove this limitation. By allowing rotation of the fibre bundle while being able to record stable sequences intermittently, it is possible to take full advantage of the use of fiberscopes to study natural behavioural repertoires.
 
 ## How does it works ?
 
-In short, it uses similar optical rotary joint as described above, but adds a motorized rotative control of the angular position. This control is tuned to animal orientation, directly reading it's movements with an inertial measurement and to external devices outputs, to be easily included inside an experimental setup.
+In short, it uses an optical rotary joint similar to that described above, but adds motorised rotative control of angular position. This control is tuned to the orientation of the animal by directly reading its movements using an inertial measurement unit, and to the outputs of external devices so that it can be easily included in an experimental setup.
 
 The rotation of the fiber bundle at the joint constantly follows the rotation of the animal while the controller is in "standby mode".
 
-When a fluorescence recording is desired, an electronic digital logic signal is used to trigger the controller and switch to "record mode". It instantly stops tuning the rotation to the animal orientation and takes the shortest route to move to a precise and stable orientation of reference (OREF) and stay there as long as the recording is ongoing.
-
-Once the recording is complete and the digital trigger signal goes low, the "standy mode" is once again used.
+When fluorescence recording is desired, an electronic digital logic signal is used to trigger the controller into "recording mode". It instantly stops setting the rotation according to the animal's orientation and rather takes the shortest route to a precise and stable reference orientation. (OREF) It remains there while the recording is in progress. Once the recording is finished and the digital trigger signal goes low, the "standy mode" is used again.
 
 More details on the operation of the device are available in the [`doc`](./doc) folder.
 
 ## What if I need to record over long periods of time without interruption ?
 
-For the context in which we developed this device, we needed to do recordings of 1second, about every 6 seconds depending on the animal behaviour.
+For the context in which we developed this device, we needed to make recordings of 1 second, approximately every 6 seconds depending on the animal's behaviour.
 
-Several solutions are easily implementable to make long recordings.
+There are several solutions that can easily be implemented to make long recordings.
 
-- In the case **short interruptions are acceptable**, the simplest solution is to change the behaviour of the joint controller, such that the joint be by default in the "record mode" and can drive the start and stop of the acquisition device to wich it is connected. When the torsion (the amount of rotation of the animal compared to the fixed position of the "record mode" currently ongoing) rises higher than a user defined value, the "record mode" is briefly stopped and the acquisition too. The joint turns quickly to reach the nearest orientation of reference (OREF) where the torsion is minimal. Once this movement is complete (in less than a second with our device) the joint comes back in stable "recording mode" and commands the start of a new sequence of images from the acquisition device. This process can continue indefinitely, resulting in sequences of images of various length depending on the rate of rotation of the animal.
+- In the case **short interruptions are acceptable**,  the simplest solution is to modify the behaviour of the joint controller so that the joint defaults to "record mode" and can control the start and stop of the acquisition device to which it is connected. When the torsion (the amount of rotation of the animal relative to the fixed position of the current 'record mode') exceeds a user-defined value, the 'record mode' is briefly stopped and so is the acquisition. The joint is rapidly rotated to the nearest reference orientation (OREF) where torsion is minimal. Once this movement is complete (full turns are completed in less than half a second with our device), the joint returns to the stable "recording mode" and commands the start of a new image sequence from the acquisition device. This process can continue indefinitely, resulting in image sequences of varying length depending on the rate of rotation of the animal.
+- In the case **uninterrupted constant sampling rate signal is required**, a more complex solution is to rely of the fact that the motor position is known at all times. Thus, an alternate "constant recording mode" can be set, where the joint can move between periods of exposure of an image by the acquisition device.
 
-- In the case **uninterrupted signal is required**, a more complex solution is to rely of the fact that the motor position is known at each time. Thus, an alternate "constant recording mode" can be set, where the joint can moves between period of exposure of an image by the acquisition device.
-
-For now, the first method has been implemented in the joint controller, but not tested during meaningful experiments. The second method has yet not been not implemented in the code of the joint controller, but will be developed in the future. 
-
-
+At present, the first method has been implemented in the joint controller, but has not been tested in any significant experiments. The second method has not yet been implemented in the joint controller code, but will be developed in the future. 
 
 ## How can I build a device based on the same principle ?
 
@@ -46,6 +41,8 @@ For now, the first method has been implemented in the joint controller, but not 
 
 ## Why deciding to pattent this ?
 
-Our goal in publishing and pattenting this device was to make it available to other neuroscience researchers and promote the study of ethologically relevant behaviours.
+The purpose of publishing and depositing this device was to make it available to other neuroscience researchers and to promote the study of ethologically relevant behaviours.
 
-The publication and this current repository documents the advantages, limits, future improvements associated with this device, and makes these information available to everyone to use and reproduce. However, adapting this device for your own lab will still represent a cost, understanding the plans & code, using or converting parts for your own optical system or your particular optical fiber. Making or choosing your own electronic system for control and interfacing with other parts of your setup. While we tried to make most of the information available to you to not retake all the research and development route we took, you'll still need some decent amount of man hours to have one build and functional. Man hours in public research tend to be a somewhat precious (rare) ressource, and having and industrial company taking care of this for you in a more efficient and versatile way is also a great advantage for many labs. Hence, we decided to pattent this new design because it allows access to fundings by university and transfer technology offices that help cover the expense of such transfer and the development of the product associated with it, for the industrial company. If you are an industrial actor and would be interested to propose a commercial product using the technology described in the [registered pattent](https://data.inpi.fr/brevets/FR3121999), for neurophysiological researchers, you can contact us at isabelle.ferezou @t cnrs.fr or daniel.shulz @t cnrs.fr .
+The publication and this current repository document the benefits, limitations, and future improvements associated with the device, and make this information available for others to use and replicate. However, adapting this device for your own laboratory will always represent a cost, including drawings and code, using or converting parts for your own particular optical system or fiber. Making or choosing your own electronics to control and interface with other parts of your installation can also be a substantial time investment. Although we have tried to make most of the information available to you so as not to go down the whole path of research and development that we did, you will still need a decent amount of man hours to build one and make it work reliably. Such time ressources in public research tend to be somewhat precious (scarce) ones, and the fact that an industrial company could take care of this for you in a more efficient and versatile way is also a great advantage for many labs. This is why we decided to patent this new design as it grants possible access to special funding from universities and technology transfer offices that may help cover the expenses of this knowledge transfer and associated product development for the industrial company.
+
+If you are an industrial actor and would be interested in proposing to neurophysiological researchers a commercial product using the technology described in the [registered pattent](https://data.inpi.fr/brevets/FR3121999), you can contact us at isabelle.ferezou @t cnrs.fr or daniel.shulz @t cnrs.fr 
