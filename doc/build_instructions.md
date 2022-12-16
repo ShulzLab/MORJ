@@ -29,6 +29,16 @@ The fiber bundle we used is designed by Schott, and is a large diameter (6.25 mm
   </div>
 </div>
 
+#### From simple "fiber below lens" static mount
+
+![No_MORJ_asssy](build_instructions.assets/No_MORJ_asssy.png)
+
+#### To rotative joint with adapted dimensions for fiber, motor, bearings & electrical joint
+
+![Cut_view_neurophot_revision](build_instructions.assets/Cut_view_neurophot_revision.png)
+
+Planning ahead for a system to adjust focus (Z) and lateral shift (X, Y) with a 2d translation platform is quite handy and important.
+
 ### 3 - The inertial measurement unit board
 
 <div class="column">
